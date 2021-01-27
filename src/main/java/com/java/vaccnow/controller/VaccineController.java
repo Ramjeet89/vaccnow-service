@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 import javax.validation.Valid;
 
 @RestController
@@ -25,12 +24,10 @@ public class VaccineController {
     @Autowired
     private VaccineRepository vaccineRepository;
 
-
     @GetMapping("/hello")
     public String sayHello() {
         return "Welcome to VaccNow Application";
     }
-
 
     @ApiOperation(value = "Create Vaccine in the System ", response = Iterable.class, tags = "createVaccine")
     @ApiResponses(value = {
@@ -42,6 +39,7 @@ public class VaccineController {
     public Vaccine createUser(@Valid @RequestBody Vaccine vaccine) {
         return vaccineRepository.save(vaccine);
     }
+
 }
 
 

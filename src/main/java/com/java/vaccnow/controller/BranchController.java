@@ -32,23 +32,9 @@ public class BranchController {
             @ApiResponse(code = 403, message = "forbidden!!!"),
             @ApiResponse(code = 404, message = "not found!!!")})
     @PostMapping("/branch")
-    public Branch createUser(@Valid @RequestBody Branch branch) throws ResourceNotFoundException {
+    public Branch createBranch(@Valid @RequestBody Branch branch) throws ResourceNotFoundException {
         return branchRepository.save(branch);
     }
-
-  /*  @ApiOperation(value = "List of all Branch ", response = Iterable.class, tags = "ListAllBranch")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success|OK"),
-            @ApiResponse(code = 401, message = "not authorized!"),
-            @ApiResponse(code = 403, message = "forbidden!!!"),
-            @ApiResponse(code = 404, message = "not found!!!")})
-    @GetMapping(value = "/list-branches")
-    public List<Branch> listAllBranches() throws ResourceNotFoundException {
-        List<Branch> branchList = branchRepository.findAll();
-        branchList.stream().map(Branch::getBranchName).collect(Collectors.toList());
-        return branchList;
-    }
-    */
 
     @ApiOperation(value = "List of all Branch ", response = Iterable.class, tags = "ListAllBranch")
     @ApiResponses(value = {
